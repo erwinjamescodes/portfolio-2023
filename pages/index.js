@@ -15,82 +15,82 @@ export default function Home() {
   const bgRef = useRef(null);
   const { colorMode } = useColorMode();
 
-  useEffect(() => {
-    if (colorMode === "light") {
-      setVantaEffect(
-        TRUNK({
-          ...{
-            el: bgRef.current,
-            THREE: THREE,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0xacacac,
-            backgroundColor: 0xffffff,
-            spacing: 8.5,
-            chaos: 2.0,
-          },
-        })
-      );
-    } else if (colorMode === "dark") {
-      setVantaEffect(
-        TRUNK({
-          ...{
-            el: bgRef.current,
-            THREE: THREE,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.0,
-            minWidth: 200.0,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0xacacac,
-            backgroundColor: 0x1a202c,
-            spacing: 8.5,
-            chaos: 2.0,
-          },
-        })
-      );
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [colorMode]);
+  // useEffect(() => {
+  //   if (colorMode === "light") {
+  //     setVantaEffect(
+  //       TRUNK({
+  //         ...{
+  //           el: bgRef.current,
+  //           THREE: THREE,
+  //           mouseControls: true,
+  //           touchControls: true,
+  //           gyroControls: false,
+  //           minHeight: 200.0,
+  //           minWidth: 200.0,
+  //           scale: 1.0,
+  //           scaleMobile: 1.0,
+  //           color: 0xacacac,
+  //           backgroundColor: 0xffffff,
+  //           spacing: 8.5,
+  //           chaos: 2.0,
+  //         },
+  //       })
+  //     );
+  //   } else if (colorMode === "dark") {
+  //     setVantaEffect(
+  //       TRUNK({
+  //         ...{
+  //           el: bgRef.current,
+  //           THREE: THREE,
+  //           mouseControls: true,
+  //           touchControls: true,
+  //           gyroControls: false,
+  //           minHeight: 200.0,
+  //           minWidth: 200.0,
+  //           scale: 1.0,
+  //           scaleMobile: 1.0,
+  //           color: 0xacacac,
+  //           backgroundColor: 0x1a202c,
+  //           spacing: 8.5,
+  //           chaos: 2.0,
+  //         },
+  //       })
+  //     );
+  //   }
+  //   return () => {
+  //     if (vantaEffect) vantaEffect.destroy();
+  //   };
+  // }, [colorMode]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      PowerGlitch.glitch(".glitch", {
-        playMode: "always",
-        hideOverflow: false,
-        timing: {
-          duration: 3000,
-          iterations: 1000,
-          easing: "ease-in-out",
-        },
-        glitchTimeSpan: {
-          start: 0.4,
-          end: 0.5,
-        },
-        shake: {
-          velocity: 20,
-          amplitudeX: 0.3,
-          amplitudeY: 0.3,
-        },
-        slice: {
-          count: 4,
-          velocity: 10,
-          minHeight: 0.02,
-          maxHeight: 0.4,
-          hueRotate: true,
-        },
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     PowerGlitch.glitch(".glitch", {
+  //       playMode: "always",
+  //       hideOverflow: false,
+  //       timing: {
+  //         duration: 3000,
+  //         iterations: 1000,
+  //         easing: "ease-in-out",
+  //       },
+  //       glitchTimeSpan: {
+  //         start: 0.4,
+  //         end: 0.5,
+  //       },
+  //       shake: {
+  //         velocity: 20,
+  //         amplitudeX: 0.3,
+  //         amplitudeY: 0.3,
+  //       },
+  //       slice: {
+  //         count: 4,
+  //         velocity: 10,
+  //         minHeight: 0.02,
+  //         maxHeight: 0.4,
+  //         hueRotate: true,
+  //       },
+  //     });
+  //   }
+  // }, []);
 
   return (
     <>
@@ -101,19 +101,22 @@ export default function Home() {
       </Head>
       <Navbar />
       <main className="h-[100vh] flex flex-col items-center justify-center mx-auto max-w-[1440px] w-[100%] px-6 overflow-hidden">
-        <div
+        {/* <div
           ref={bgRef}
           className={`bg-holder ${
             colorMode === "light" ? "opacity-70" : "opacity-30"
           }
           `}
-        ></div>
+        ></div> */}
         <Flex direction={"column"} className="w-[100%] z-10 ">
           <Heading
             fontWeight={600}
             fontSize={{ base: "5xl", md: "6xl", lg: "8xl" }}
           >
-            <Text className="leading-none glitch ">
+            <Text
+              className="leading-none glitch hero layers"
+              data-text="Front-end Developer & Problem Solver"
+            >
               Front-end Developer <br></br> & Problem Solver.
             </Text>
           </Heading>
